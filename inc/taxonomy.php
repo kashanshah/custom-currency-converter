@@ -6,9 +6,9 @@ function wpccbks_create_taxonomies() {
         'name'              => _x( 'Conversion Categories', 'taxonomy general name', 'wpccbks' ),
         'singular_name'     => _x( 'Conversion Category', 'taxonomy singular name', 'wpccbks' ),
         'search_items'      => __( 'Search Conversion Category', 'wpccbks' ),
-        'all_items'         => __( 'All Conversion Categories', 'wpccbks' ),
+        'all_items'         => __( 'Conversion Categories', 'wpccbks' ),
         'new_item_name'     => __( 'Add New Conversion Category', 'wpccbks' ),
-        'menu_name'         => __( 'Conversion Categories', 'wpccbks' ),
+        'menu_name'         => __( 'Currency Converter', 'wpccbks' ),
     );
 
     register_post_type('conversion_category', array(

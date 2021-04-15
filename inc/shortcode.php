@@ -1,10 +1,13 @@
 <?php
 add_shortcode( 'wpccbks', 'wpccbks_func' );
-function getCountryList($activeCurrencies, $defaultIndex) {
+function getCountryList($activeCurrencies, $defaultIndex, $category) {
     $retData = '';
     if (!empty($activeCurrencies)) {
+        $categories = explode(",", $category);
         for ($i = 0; $i < sizeof($activeCurrencies["name"]); $i++) {
-            $retData .= '<option '.selected($defaultIndex, $i, false).' value="'.$activeCurrencies["abbr"][$i].'" data-flag="'.$activeCurrencies["flag"][$i].'">'.__($activeCurrencies["name"][$i], 'wpccbks').'</option>';
+            if(($category == '' || in_array($activeCurrencies["category"][$i], $categories)) && $activeCurrencies["name"][$i] != ""){
+                $retData .= '<option '.selected($defaultIndex, $i, false).' value="'.$activeCurrencies["abbr"][$i].'" data-flag="'.$activeCurrencies["flag"][$i].'">'.__($activeCurrencies["name"][$i], 'wpccbks').'</option>';
+            }
         }
     }
     return $retData;
@@ -14,12 +17,14 @@ function wpccbks_func( $atts ) {
     $wpccbks_scAttr = shortcode_atts( array(
         'type' => 'buy',
         'heading' => 'Currency Converter',
-        'class' => ''
+        'class' => '',
+        'category' => ''
     ), $atts );
     $i = -1;
 
     $wpccbks_settings = get_option('wpccbks_options');
     $activeCurrencies = (isset($wpccbks_settings["currencies"]) ? $wpccbks_settings["currencies"] : array());
+    $category = $wpccbks_scAttr['category'];
     $wpccbks_postcontent = '
         	<div class="wpcc-bks '.$wpccbks_scAttr["class"].'">
 		<div class="title-container no-gutters">
@@ -33,7 +38,7 @@ function wpccbks_func( $atts ) {
 			<div class="converter-div-col">
 				<div class="country-div">
                     <select class="select-country bks-currency-dropdown bks-country-dropdown-from">
-                    '.getCountryList($activeCurrencies, $wpccbks_settings["defaultFrom"]).'
+                    '.getCountryList($activeCurrencies, $wpccbks_settings["defaultFrom"], $category).'
                     </select>
 				</div>
                 <p>'.__('Rate', 'wpccbks').': <span class="rate-from">-</span></p>
@@ -42,7 +47,7 @@ function wpccbks_func( $atts ) {
 			<div class="converter-div-col">
 				<div class="country-div">
                     <select class="select-country bks-currency-dropdown bks-country-dropdown-to">
-                        '.getCountryList($activeCurrencies, $wpccbks_settings["defaultTo"]).'
+                        '.getCountryList($activeCurrencies, $wpccbks_settings["defaultTo"], $category).'
                     </select>
                 </div>
                 <p>&nbsp;</p>

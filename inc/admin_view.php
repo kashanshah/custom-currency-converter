@@ -4,7 +4,6 @@
 add_action('admin_menu', 'wpccbks_admin_actions');
 function wpccbks_admin_actions()
 {
-    $menu = add_menu_page('', 'Currency Converter', 'manage_options', 'wpccbks-menu', '');
     add_submenu_page('edit.php?post_type=conversion_category', 'Conversion Rates', 'Conversion Rates', 'manage_options', 'wpccbks', 'wpccbks_admin');
     register_setting( 'wpccbks_options', 'wpccbks_options' );
 
@@ -59,14 +58,16 @@ function wpccbks_admin()
                                     array(
                                         'post_type'      => 'conversion_category',
                                         'posts_per_page' => -1,
-                                        'post_status'    => array('publish'),
+                                        'post_status' => array('publish')
                                     )
                                 );
                         if($query->have_posts()) {
                             while($query->have_posts()) {
                                 $query->the_post();
+                                $post = get_post(get_the_ID());
+                                $slug = $post->post_name;
                                 ?>
-                                <option value="<?php echo get_the_ID(); ?>" <?php selected(get_the_ID(), "after")[$i]; ?>><?php echo get_the_title(); ?></option>
+                                <option value="<?php echo $slug; ?>" <?php selected($slug, $activeCurrencies["category"][$i]); ?>><?php echo get_the_title(); ?></option>
                                 <?php
                             } // endwhile
                             wp_reset_postdata(); // VERY VERY IMPORTANT
@@ -121,14 +122,16 @@ function wpccbks_admin()
                                 array(
                                     'post_type'      => 'conversion_category',
                                     'posts_per_page' => -1,
-                                    'post_status'    => array('publish'),
+                                    'post_status' => array('publish')
                                 )
                             );
                             if($query->have_posts()) {
                                 while($query->have_posts()) {
                                     $query->the_post();
+                                    $post = get_post(get_the_ID());
+                                    $slug = $post->post_name;
                                     ?>
-                                    <option value="<?php echo get_the_ID(); ?>"><?php echo get_the_title(); ?></option>
+                                    <option value="<?php echo $slug; ?>"><?php echo get_the_title(); ?></option>
                                     <?php
                                 } // endwhile
                                 wp_reset_postdata(); // VERY VERY IMPORTANT
