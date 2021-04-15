@@ -1,11 +1,13 @@
 === Custom Currency Converter ===
-Contributors: kashanshah
+Author: kashanshah
+Author URI: https://www.kashanshah.com
 Tags: currency converter, cryptocurrency, wordpress
-Donate link: https://www.kashanshah.com
 Requires at least: 5.1
 Tested up to: 5.7.1
 Requires PHP: 7.0
 Stable tag: 1.0
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Custom WordPress Currency Converter
 

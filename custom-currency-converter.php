@@ -1,12 +1,17 @@
 <?php
 /*
 Plugin Name: Custom Currency Converter
-Plugin URI: http://www.kashanshah.com
-Description: Custom Currency Converter for WordPress
-Version: 0.0.3
-Author: Kashan Shah
+Author: kashanshah
 Author URI: http://www.kashanshah.com
-License: A "wpccbks" license name e.g. GPL2
+Description: Custom Currency Converter for WordPress
+Version: 1.0
+Tags: currency converter, cryptocurrency, wordpress
+Requires at least: 5.1
+Tested up to: 5.7.1
+Requires PHP: 7.0
+Stable tag: 1.0
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 DEFINE("WPCCBKS_PLUGIN_DIR_URL", plugin_dir_url(__FILE__));
