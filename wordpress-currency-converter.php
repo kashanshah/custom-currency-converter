@@ -17,4 +17,5 @@ include('inc/taxonomy.php');
 include('inc/shortcode.php');
 include('inc/enque_files.php');
 include('inc/admin_view.php');
+include('inc/adding_copy_shortcode_column.php');
 
