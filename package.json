@@ -1,0 +1,30 @@
+{
+  "dependencies": {
+    "node-sass": "^5.0.0"
+  },
+  "name": "wordpress-currency-converter",
+  "version": "1.0.0",
+  "description": "\u0016Custom Wordpress Currency Converter",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --watch assets/scss -o assets/css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kashanshah/wordpress-currency-converter.git"
+  },
+  "keywords": [
+    "currency",
+    "converter",
+    "wordpress",
+    "cryptocurrency"
+  ],
+  "author": "Syed Kashan Ali Shah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kashanshah/wordpress-currency-converter/issues"
+  },
+  "homepage": "https://github.com/kashanshah/wordpress-currency-converter#readme"
+}
