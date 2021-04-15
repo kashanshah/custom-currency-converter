@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name: Wordpress Currency Converter
+Plugin Name: Custom Currency Converter
 Plugin URI: http://www.kashanshah.com
-Description: Custom Wordpress Currency Converter
+Description: Custom Currency Converter for WordPress
 Version: 0.0.3
 Author: Kashan Shah
 Author URI: http://www.kashanshah.com
